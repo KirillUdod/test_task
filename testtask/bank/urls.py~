@@ -1,0 +1,6 @@
+from django.conf.urls import patterns, include, url
+import bank.views
+
+urlpatterns = patterns('',
+    url(r'^$', 'send_money', name='show'),
+)

@@ -1,0 +1,27 @@
+{% block content %}
+    <form action="{% url 'show'%}" method="POST">
+    {% csrf_token %}
+    <table>
+    <tr><td>Users: 
+            <select name="dropdown" id="dropdown">
+                {% for user in users %}
+                    <option value="{{ user.username }}">{{ user.username }}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="number" id='IDD' name='IDD' maxlength="4" min="0" max="9999" /></td>
+    </tr>
+    <tr>
+        <td><input type="number" name='Amount' id='Amount' min="0" step="any"/></td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Give money" /></td>
+    </tr>
+    {% if login_error %}
+        <label class="error">{{ login_error }}</label>
+    {% endif %}
+
+    </table>
+{% endblock %}
